@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.description {
+    text-align: center;
+}
+
+.margin_smallbox {
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .description {
+        text-align: start;
+    }
+    .margin_smallbox {
+        margin-top: 0px;
+    }
+}
