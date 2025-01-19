@@ -1,10 +1,20 @@
 'use client'
 import { Fahkwang} from 'next/font/google';
 import { useState } from 'react';
-import {CloudDownloadOutlined ,DiscordOutlined,LinkOutlined,QuestionCircleOutlined,SendOutlined} from '@ant-design/icons';
+import {CloudDownloadOutlined ,
+    CoffeeOutlined,
+    DiscordOutlined,
+    DollarOutlined,
+    FacebookOutlined,
+    LinkOutlined,
+    MailOutlined,
+    PhoneOutlined,
+    QuestionCircleOutlined,
+    SendOutlined} from '@ant-design/icons';
 import { useRouter } from 'next/navigation'
-
+import Image from 'next/image';
 import "./style.css";
+import {Footer} from '@/components/footer'
 
 // set fonts
 const fahkwang = Fahkwang({
@@ -48,7 +58,7 @@ function Home() {
     }
     
     return (
-    <div className={`w-screen h-screen ${fahkwang.className} overscroll-x-none overflow-x-hidden`}>
+    <div className={`w-screen h-screen ${fahkwang.className} overflow-x-hidden`}>
         <header className="flex flex-row w-full items-center text-white bg-black py-1 sticky top-0 z-10 px-4">
             <div>
                 <div className="text-2xl font-semibold">Aimwarin</div>
@@ -121,7 +131,7 @@ function Home() {
                                             className="focus:outline-none border  focus:border-red-400 py-1 px-2 rounded-2xl w-1/2"
                                             placeholder='Type something..'
                                         />
-                                        <div className="flex justify-center bg-black text-white py-1 px-2 rounded-full mx-2 cursor-pointer ">
+                                        <div className="flex justify-center text-white py-1 px-2 rounded-full mx-2 cursor-pointer bg-black hover:opacity-80 duration-200">
                                             <SendOutlined />
                                         </div>
                                     </div>
@@ -143,17 +153,12 @@ function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-row my-7 text-white bg-black py-3 rounded-xl px-5 max-w-max  cursor-pointer">
+                    <div className="flex flex-row my-7 text-white bg-black  py-3 rounded-xl px-5 max-w-max  cursor-pointer hover:opacity-80 duration-200 ">
                         <div className="mr-2">Download Aimwarin 1.1.0</div>
                         <CloudDownloadOutlined />
                     </div>
                 </div>
-                <div className="flex flex-col h-full w-full bg-green-300">
-                    <div className="font-bold text-7xl">Aimwarin</div>
-                    <div className="flex flex-row">
-                        <button type='button'>Download Aimwarin 1.1.0</button>
-                    </div>
-                </div>
+                <Footer/>
             </div>
         </div>
     </div>

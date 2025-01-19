@@ -4,6 +4,7 @@ import { Fahkwang} from 'next/font/google';
 import { useState } from 'react';
 import { DownOutlined, GithubOutlined } from '@ant-design/icons';
 import Image from 'next/image'
+import {Footer} from '@/components/footer'
 
 
 const fahkwang = Fahkwang({
@@ -62,7 +63,7 @@ export default function Doc() {
                         </div>
                     )}
                 </div>
-                <div className="xl:flex-col w-[20%] hidden xl:flex p-4 overflow-y-scroll h-full">
+                <div className="xl:flex-col w-[20%] hidden xl:flex p-4 overflow-y-auto h-full">
                     <div className="text-md text-slate-600 mb-1">Introduction</div>
                     <div className="pl-7 text-sm mb-2">
                         <ul className="list-disc">
@@ -80,7 +81,7 @@ export default function Doc() {
                         </ul>
                     </div>
                 </div>
-                <div className="w-full p-4 xl:w-[60%] xl:p-12 space-y-5  h-full">
+                <div className="w-full p-4 xl:w-[60%] xl:p-12 space-y-5  overflow-y-auto h-full">
                     <div className="text-black font-bold text-4xl">Introduction to Aimwarin</div>
                     <div>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
@@ -132,6 +133,7 @@ export default function Doc() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
