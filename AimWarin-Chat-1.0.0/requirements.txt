@@ -1,0 +1,9 @@
+pandas
+streamlit
+openai
+pydantic
+llama-index
+neo4j
+streamlit-chat
+python-dotenv
+llama-index-graph-stores-neo4j
