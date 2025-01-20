@@ -15,6 +15,9 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image';
 import "./style.css";
 import {Footer} from '@/components/footer'
+import axios from 'axios';
+
+
 
 // set fonts
 const fahkwang = Fahkwang({
@@ -23,6 +26,33 @@ const fahkwang = Fahkwang({
 })
 
 function Home() {
+    const [query, setQuery] = useState<string>('');
+    const [response, setResponse] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+
+
+    const handleSubmitAIData = async () => {
+        if (!query.trim()) {
+        setError('Query cannot be empty!');
+        return;
+        }
+        setError(null); // Clear previous errors
+
+        try {
+        const res = await axios.post(
+            'http://127.0.0.1:8000/query',
+            { query }, // Pass the query in the request body
+            { headers: { 'Content-Type': 'application/json' } } // Correct headers
+        );
+        // setResponse(res.data.response); // Update state with API response
+        console.log(res.data.response);
+        setResponse(res.data.response);
+        } catch (err) {
+        console.error('Submit data error:', err);
+        setError('Failed to fetch data. Please try again.');
+        }
+    };
     //intialize app rounter
     const router = useRouter()
     // this value will change based on our GitHub version.
@@ -30,7 +60,7 @@ function Home() {
     // value for setting topic chat ui
     const [selectedTopic, setSelectedTopic] = useState<number>(0);
     // query AI
-    const [query ,setQuery] = useState<string>('');
+    
     // stores response from AI
     const [airesponse , setAIResponse] = useState<string>('');
 
@@ -48,14 +78,6 @@ function Home() {
         
     }
 
-    // <API> set data to AI
-    const handleSubmitAIData = () => {
-        try {
-            // const response = CALL_SOME_API_TO_GET_VERSION;
-        } catch (error) {
-            console.log('Submit data error:', error);
-        }
-    }
     
     return (
     <div className={`w-screen h-screen ${fahkwang.className} overflow-x-hidden`}>
@@ -98,40 +120,18 @@ function Home() {
                             </div>
                             <div className="flex  items-end justify-center w-full bg-slate-100 mt-2 grow py-2 px-4 border-black border rounded-2xl h-auto">
                                 <div className="w-full ">
-                                    <div
-                                    className="bg-orange-300 max-h-36 px-4 overflow-y-scroll "
-                                    >
-                                        Example Text 1
-                                        <br/>
-                                        Example Text 2
-                                        <br/>
-                                        Example Text 3
-                                        <br/>
-                                        Example Text 4
-                                        <br/>
-                                        Example Text 5
-                                        <br/>
-                                        Example Text 6
-                                        <br/>
-                                        Example Text 7
-                                        <br/>
-                                        Example Text 8
-                                        <br/>
-                                        Example Text 9
-                                        <br/>
-                                        Example Text 10
-                                        <br/>
-                                        Example Text 11
-                                        <br/>
-
-                                    </div>
+                                <div className="flex flex-col w-full h-full">
+                                {response && <div className="mt-4 p-2 bg-green-100 typing-animation">{response}</div>}
+                                </div>
                                     <div className="flex flex-row w-full justify-center mt-2">
                                         <input
+                                            value={query}
+                                            onChange={(e) => setQuery(e.target.value)} // Update state on change
                                             type="text"
                                             className="focus:outline-none border  focus:border-red-400 py-1 px-2 rounded-2xl w-1/2"
                                             placeholder='Type something..'
                                         />
-                                        <div className="flex justify-center text-white py-1 px-2 rounded-full mx-2 cursor-pointer bg-black hover:opacity-80 duration-200">
+                                        <div className="flex justify-center text-white py-1 px-2 rounded-full mx-2 cursor-pointer bg-black hover:opacity-80 duration-200" onClick={handleSubmitAIData}>
                                             <SendOutlined />
                                         </div>
                                     </div>
