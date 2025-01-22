@@ -41,16 +41,16 @@ export function Footer() {
                         <div className="ml-5 text-sm">Aimwarin Official</div>
                     </div>
                 </div>
-                <div className="  w-auto py-3 flex-col px-10 cursor-pointer border-black border-t xl:border-t-0">
+                <div className="py-3 flex-col px-10 cursor-pointer border-black border-t xl:border-t-0 w-full xl:w-auto">
                     <div className="font-medium mb-2">Encounter Issues?</div>
                     <div className="flex flex-col border-black border p-2 justify-center items-center rounded-2xl hover:bg-black hover:text-white duration-500">
                         <DollarOutlined className="text-4xl"/>
                         <div className="text-sm mt-2">Send us for reward</div>
                     </div>
                 </div>
-                <div className=" w-auto py-3 flex-col cursor-pointer border-black border-t xl:border-t-0 px-12">
-                    <div className="font-medium mb-2">Help</div>
-                    <div className="flex flex-row">
+                <div className="w-full xl:w-auto py-3 flex-col cursor-pointer border-black border-t xl:border-t-0 px-12">
+                    <div className="font-medium mb-2 ">Help</div>
+                    <div className="flex flex-row w-full ">
                         <GithubOutlined className="text-xl mr-4"/>
                         <div className="text-sm">Github</div>
                     </div>

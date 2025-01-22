@@ -86,7 +86,7 @@ export default function About() {
                     Pasin Buakaw : AI Engineer / Backend Developer
                 </div>
             </div>
-            <div className="w-full xl:w-[70%] xl:p-10 space-y-5 xl:text-start border border-black rounded-xl">
+            <div className="w-full xl:w-[70%] xl:p-10 space-y-5 xl:text-start  xl:border border-black rounded-xl">
                 <div className="font-semibold text-3xl">
                     We Started From The School, Now We're Here
                 </div>
